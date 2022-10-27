@@ -1,0 +1,41 @@
+---
+title: "Covid-19 Data Analysis with R don"
+output: github_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE)
+```
+
+# Getting Started
+## Downloading and Importing Up-To-Date COVID-19 Data
+
+```{r echo = T, message = F, warning = F}
+rpath1 = "https://raw.githubusercontent.com/nytimes/covid-19-data/master/us-states.csv"
+usstates = read.csv(rpath1)
+```
+
+## Make a copy
+
+```{r}
+dat_state = usstates
+head(dat_state)
+```
+
+## Define Date Variable and Data Frame
+
+
+```{r}
+dat_state$date <- as.Date(dat_state$date)
+dat_state <- arrange(dat_state,state,date)
+```
+
+## Including Plots
+
+You can also embed plots, for example:
+
+```{r pressure, echo=FALSE}
+plot(pressure)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
